@@ -2,23 +2,23 @@ package com.mycompany.comptimemanager.entities;
 
 public class WorkDay implements PeriodWorking {
 
-	private String Start;
+	private String StartDay;
 	private String StartLunch;
 	private String EndLunch;
-	private String End;
+	private String EndDay;
 	
-	public WorkDay(String start, String startLunch, String endLunch, String end) {
-		setStart(start);
-		setStart(startLunch);
+	public WorkDay(String startDay, String startLunch, String endLunch, String endDay) {
+		setStart(startDay);
+		setStartLunch(startLunch);
 		setEndLunch(endLunch);
-		setEnd(end);
+		setEnd(endDay);
 	}
 	
 	public String getStart() {
-		return Start;
+		return StartDay;
 	}
-	public void setStart(String start) {
-		Start = start;
+	public void setStart(String startDay) {
+		StartDay = startDay;
 	}
 	public String getStartLunch() {
 		return StartLunch;
@@ -33,9 +33,9 @@ public class WorkDay implements PeriodWorking {
 		EndLunch = endLunch;
 	}
 	public String getEnd() {
-		return End;
+		return EndDay;
 	}
-	public void setEnd(String end) {
-		End = end;
+	public void setEnd(String endDay) {
+		EndDay = endDay;
 	}
 }

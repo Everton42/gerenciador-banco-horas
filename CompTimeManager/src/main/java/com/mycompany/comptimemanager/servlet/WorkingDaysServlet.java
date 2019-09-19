@@ -1,8 +1,9 @@
 package com.mycompany.comptimemanager.servlet;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,28 +22,20 @@ public class WorkingDaysServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String start = request.getParameter("start");
+		String startDay = request.getParameter("startDay");
 		String startLunch = request.getParameter("startLunch");
 		String endLunch = request.getParameter("endLunch");
-		String end = request.getParameter("end");
+		String endDay = request.getParameter("endDay");
 
 		FakeDb db = new FakeDb();
-		db.setWorkingDays(start, startLunch, endLunch, end);
+		db.setWorkingDays(startDay, startLunch, endLunch, endDay);
+		
+	    List<WorkDay> lista = db.getWorkingDays();
 
-		PrintWriter out = response.getWriter();
-		out.println("<html><body>");
-		out.println("<table>");
-		out.println("<tr>");
-		for (WorkDay workDay : db.getWorkingDays()) {
-
-			out.println("<td>" + workDay.getStart() + "</td>");
-			out.println("<td>" + workDay.getStartLunch() + "</td>");
-			out.println("<td>" + workDay.getEndLunch() + "</td>");
-			out.println("<td>" + workDay.getEnd() + "</td>");
-		}
-		out.println("</tr>");
-		out.println("</table>");
-		out.println("</body></html>");
+	    request.setAttribute("workdays", lista);
+		
+	    RequestDispatcher rd = request.getRequestDispatcher("/index.jsp");
+	    rd.forward(request, response);
 	}
 
 }

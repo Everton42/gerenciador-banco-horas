@@ -24,8 +24,8 @@ public class FakeDb {
 		return hours;
 	}
 	
-	public void setWorkingDays(String start, String startLunch, String endLunch, String end) {
-		WorkDay newDay = new WorkDay(start,startLunch,endLunch,end);
+	public void setWorkingDays(String startDay, String startLunch, String endLunch, String endDay) {
+		WorkDay newDay = new WorkDay(startDay,startLunch,endLunch,endDay);
 		hours.add(newDay);
 	}
 }
