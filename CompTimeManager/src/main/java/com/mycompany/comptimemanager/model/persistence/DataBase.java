@@ -14,9 +14,16 @@ public class DataBase {
 	
 	static {
 		User user = new User();
-		user.setLogin("admin");
+		user.setLogin("Everton42");
 		user.setPassword("12345");
 		userList.add(user);
+		
+		WorkHour wkh1 = new WorkHour("2019-09-23", "08:00", "12:00");
+		wkh1.setUserId(user.getId());
+		WorkHour wkh2 = new WorkHour("2019-09-23", "12:00", "18:00");
+		wkh2.setUserId(user.getId());
+		list.add(wkh1);
+		list.add(wkh2);
 	}
 	
 	public void addWorkHour(WorkHour workHour, Integer userId) {

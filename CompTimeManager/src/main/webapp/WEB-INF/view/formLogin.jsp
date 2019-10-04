@@ -11,8 +11,8 @@
 
 	<form action="${rootServlet}" method="post">
 	
-		Login: <input type="text" name="login"  />
-		Senha: <input type="password" name="password"  />
+		<span>Login: </span><input type="text" name="login"  />
+		<span>Senha: </span><input type="password" name="password"  />
 		
 		<input type="hidden" name="action" value="Login">
 	

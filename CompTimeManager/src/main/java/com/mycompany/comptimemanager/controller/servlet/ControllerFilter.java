@@ -29,6 +29,7 @@ public class ControllerFilter implements Filter {
 		
 		String name;
 		try {
+			@SuppressWarnings("rawtypes")
 			Class classR = Class.forName(className);
 			Action action = (Action) classR.newInstance();
 			name = action.exec(request,response);
@@ -36,11 +37,15 @@ public class ControllerFilter implements Filter {
 			throw new ServletException(e);
 		}
 		String[] typeAddress = name.split(":");
-		if(typeAddress[0].equals("forward")) {
+ 		if(typeAddress[0].equals("forward")) {
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/view/" + typeAddress[1]);
 			rd.forward(request, response);
-		} else {
-			response.sendRedirect(typeAddress[0]);
+		} 
+ 		else if(typeAddress[0].equals("redirect")) {
+ 			response.sendRedirect(typeAddress[1]);
+ 		}
+ 		else {
+			response.sendRedirect(typeAddress[0]);	
 		}
 	}
 

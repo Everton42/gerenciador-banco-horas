@@ -1,7 +1,6 @@
 package com.mycompany.comptimemanager.controller.action;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,21 +11,22 @@ import com.mycompany.comptimemanager.model.entity.User;
 import com.mycompany.comptimemanager.model.entity.WorkHour;
 import com.mycompany.comptimemanager.model.persistence.DataBase;
 
-public class Dashboard implements Action{
+public class AddWorkHour implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		DataBase db = new DataBase();
-		List<WorkHour> listWk = db.getWorkHours();
-		
 		HttpSession session = request.getSession();
-		User user = (User)session.getAttribute("userAuthorized");
-
-		request.setAttribute("user", user);
-		request.setAttribute("listWk", listWk);
 		
-		return "forward:dashboard.jsp";
+		String start = request.getParameter("start");
+		String end = request.getParameter("end");
+		String date = request.getParameter("date");
+		
+		WorkHour workHour = new WorkHour(date, start, end);
+		DataBase db = new DataBase();
+		User user = (User)session.getAttribute("userAuthorized");
+		db.addWorkHour(workHour, user.getId());
+		
+		return "redirect:entry?action=Dashboard";
 	}
 
 }

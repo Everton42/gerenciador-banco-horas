@@ -2,6 +2,7 @@ package com.mycompany.comptimemanager.model.entity;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class WorkHour extends BaseEntity implements IWorkHour{
 
@@ -17,8 +18,8 @@ public class WorkHour extends BaseEntity implements IWorkHour{
 		setEnd(end);
 	}
 	@Override
-	public LocalDate getDate() {
-		return Date;
+	public String getDate() {
+		return dateFormat(Date);
 	}
 	@Override
 	public LocalTime getStart() {
@@ -54,4 +55,8 @@ public class WorkHour extends BaseEntity implements IWorkHour{
 		this.UserId = userId;
 	}
 
+	private String dateFormat(LocalDate dt) {
+		String date = dt.format(DateTimeFormatter.ofPattern("dd/MM"));
+		return date;
+	}
 }

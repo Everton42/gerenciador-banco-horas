@@ -13,5 +13,4 @@ public class LoginForm implements Action {
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		return "forward:formLogin.jsp";
 	}
-
 }
