@@ -1,6 +1,6 @@
 package com.mycompany.comptimemanager.model.entity;
 
-public class User extends BaseEntity implements IUser {
+public class User extends BaseEntity {
 	private String Login;
 	private String Password;
 	

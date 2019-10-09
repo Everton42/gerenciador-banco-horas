@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
-public class WorkHour extends BaseEntity implements IWorkHour{
+public class WorkHour extends BaseEntity {
 
 	private LocalDate Date;
 	private LocalTime Start;
@@ -17,40 +17,38 @@ public class WorkHour extends BaseEntity implements IWorkHour{
 		setStart(start);
 		setEnd(end);
 	}
-	@Override
 	public String getDate() {
 		return dateFormat(Date);
 	}
-	@Override
 	public LocalTime getStart() {
 		return Start;
 	}
 
-	@Override
+	
 	public LocalTime getEnd() {
 		return End;
 	}
-	@Override
+	
 	public void setDate(String date) {
 		LocalDate dateParsed = LocalDate.parse(date);
 		this.Date = dateParsed;
 	}
-	@Override
+	
 	public void setStart(String start) {
 		LocalTime startParsed = LocalTime.parse(start);
 		this.Start = startParsed;
 	}
 
-	@Override
+	
 	public void setEnd(String end) {
 		LocalTime startParsed = LocalTime.parse(end);
 		this.End = startParsed;
 	}
-	@Override
+	
 	public Integer getUserId() {
 		return UserId;
 	}
-	@Override
+	
 	public void setUserId(Integer userId) {
 		this.UserId = userId;
 	}

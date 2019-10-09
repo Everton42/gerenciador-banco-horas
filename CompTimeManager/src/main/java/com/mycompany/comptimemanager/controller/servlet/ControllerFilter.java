@@ -20,12 +20,19 @@ public class ControllerFilter implements Filter {
 	public void destroy() {}
 
 	public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-
+		
 		HttpServletRequest request = (HttpServletRequest) req;
 		HttpServletResponse response = (HttpServletResponse) res;
 		
+		String className;
 		String actionParam = request.getParameter("action");
-		String className = "com.mycompany.comptimemanager.controller.action." + actionParam;
+		String actionRoot ="com.mycompany.comptimemanager.controller.action.";
+		
+		if (actionParam.contains("WorkHour"))
+			className = actionRoot + "workhour." + actionParam;
+		
+		else
+			className = actionRoot + actionParam;
 		
 		String name;
 		try {
