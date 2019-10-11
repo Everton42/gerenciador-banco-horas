@@ -38,7 +38,7 @@ html, body {
 							class="form-control" required>
 					</div>
 					<div class="form-group">
-						<button class="btn btn-block btn-primary  btn-info" type="submit"
+						<button class="btn btn-block  btn-info" type="submit"
 							name="action" value="Login">Entrar</button>
 					</div>
 				</form>

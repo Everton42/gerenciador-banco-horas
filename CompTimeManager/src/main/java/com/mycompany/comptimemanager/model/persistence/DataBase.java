@@ -1,8 +1,10 @@
 package com.mycompany.comptimemanager.model.persistence;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.mycompany.comptimemanager.model.entity.User;
 import com.mycompany.comptimemanager.model.entity.WorkHour;
@@ -32,7 +34,9 @@ public class DataBase {
 	}
 	
 	public List<WorkHour> getWorkHours(){
-		return DataBase.list;
+		return DataBase.list.stream()
+		        .sorted(Comparator.comparing(WorkHour::getDate))
+		        .collect(Collectors.toList());
 	}
 
 	public void removeWorkHour(Integer id) {
@@ -46,7 +50,7 @@ public class DataBase {
 			}
 		}
 	}
-
+	
 	public WorkHour getWorkHourById(Integer id) {
 		for (WorkHour wk : list) {
 			if(wk.getId() == id) {

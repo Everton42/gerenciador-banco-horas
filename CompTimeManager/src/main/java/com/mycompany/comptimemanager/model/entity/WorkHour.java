@@ -54,7 +54,7 @@ public class WorkHour extends BaseEntity {
 	}
 
 	private String dateFormat(LocalDate dt) {
-		String date = dt.format(DateTimeFormatter.ofPattern("dd/MM"));
+		String date = dt.format(DateTimeFormatter.ofPattern("dd/MM/Y"));
 		return date;
 	}
 }
