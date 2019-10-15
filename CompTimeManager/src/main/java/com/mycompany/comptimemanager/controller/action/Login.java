@@ -14,7 +14,7 @@ public class Login implements Action {
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String redirectLinkDash = "entry?action=Dashboard";
+		String redirectLinkIndex = "entry?action=Index";
 		String redirectLinkLogin = "entry?action=LoginForm";
 		
 		String login = request.getParameter("login");
@@ -26,7 +26,7 @@ public class Login implements Action {
 		if (user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("userAuthorized", user);
-			return redirectLinkDash;
+			return redirectLinkIndex;
 		}
 		else
 			return redirectLinkLogin;

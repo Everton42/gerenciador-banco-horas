@@ -25,7 +25,7 @@ public class UpdateWorkHour implements Action {
 		workHour.setStart(start);
 		workHour.setEnd(end);
 		
-		return "redirect:entry?action=Dashboard";
+		return "redirect:entry?action=Timesheet";
 	}
 
 }

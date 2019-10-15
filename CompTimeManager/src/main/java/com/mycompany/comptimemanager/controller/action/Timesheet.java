@@ -12,7 +12,7 @@ import com.mycompany.comptimemanager.model.entity.User;
 import com.mycompany.comptimemanager.model.entity.WorkHour;
 import com.mycompany.comptimemanager.model.persistence.DataBase;
 
-public class Dashboard implements Action{
+public class Timesheet implements Action{
 
 	@Override
 	public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -26,7 +26,7 @@ public class Dashboard implements Action{
 		request.setAttribute("user", user);
 		request.setAttribute("listWk", listWk);
 		
-		return "forward:dashboard.jsp";
+		return "forward:timesheet.jsp";
 	}
 
 }

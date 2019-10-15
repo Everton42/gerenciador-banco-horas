@@ -27,7 +27,7 @@ public class AddWorkHour implements Action {
 		User user = (User)session.getAttribute("userAuthorized");
 		db.addWorkHour(workHour, user.getId());
 		
-		return "redirect:entry?action=Dashboard";
+		return "redirect:entry?action=Timesheet";
 	}
 
 }

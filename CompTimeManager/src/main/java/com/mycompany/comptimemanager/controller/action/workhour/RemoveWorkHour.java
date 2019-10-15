@@ -22,7 +22,7 @@ public class RemoveWorkHour implements Action {
 		if(workHour != null)
 			db.removeWorkHour(workHour.getId());
 
-		return "redirect:entry?action=Dashboard";
+		return "redirect:entry?action=Timesheet";
 	}
 
 }
